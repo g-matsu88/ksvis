@@ -1,0 +1,32 @@
+                   ┌────────────────────────────┐
+                   │        User Interface      │
+                   │ (Streamlit Web Dashboard)  │
+                   └─────────────┬──────────────┘
+                                 │
+                                 │ interacts via browser
+                                 ▼
+                   ┌────────────────────────────┐
+                   │       Streamlit App        │
+                   │ - Loads data (pandas)      │
+                   │ - Visualizes (matplotlib,  │
+                   │   seaborn)                 │
+                   │ - Handles user requests    │
+                   └─────────────┬──────────────┘
+                                 │
+                  reads data from mounted volume
+                                 │
+                                 ▼
+                   ┌────────────────────────────┐
+                   │   Local CSV Dataset         │
+                   │ (/app/data/pokemonSet.csv)  │
+                   └─────────────┬──────────────┘
+                                 │
+                      mounted into Docker container
+                                 │
+                                 ▼
+                   ┌────────────────────────────┐
+                   │     Docker Environment      │
+                   │  - Isolated runtime         │
+                   │  - Mounted local volume     │
+                   │  - Runs Streamlit service   │
+                   └────────────────────────────┘
